@@ -14,13 +14,13 @@ print("==========================================")
 
 #print(dna_kernel.random_base())
 
-from dna_tool import initialize
+#dna.initialize()
 
 dna.display_menu()
 while True:
     option = input("Command (Enter to exit): ")
     if option == "1":
-        initialize()
+        dna.initialize()
     elif option == "2":
         print("Currently in progress")
     elif option == "3":

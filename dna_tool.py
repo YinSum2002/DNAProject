@@ -1,6 +1,7 @@
 ########
 import random
 
+import dna_kernel
 from dna_kernel import random_base # Provided to you
 ########
 
@@ -10,21 +11,21 @@ def display_menu():
 
 
 #### To complete (all functions below)
+
+
 def initialize():
-    name: list[str] = ["Amy", "Bob", "Brooke", "Connor", "James", "Jenna", "Kate", "Pat", "Peter", "Tony"]
-    age: list[str] = ["37", "28", "34", "27", "61", "44", "18", "26", "19", "55"]
-    dna_strand = random_base()
+    name = ["Amy", "Bob", "Brooke", "Connor", "James", "Jenna", "Kate", "Pat", "Peter", "Tony"]
+    age = ["37", "28", "34", "27", "61", "44", "18", "26", "19", "55"]
+    #def random_strand():
     for x in range(10):
-        patient: list[str] = [name[x], age[x], dna_strand]
+        #dna_strand = random_base()
+        strand = ""
+        while len(strand) < 20:
+            strand = strand + random_base()
+        if len(strand) == dna_kernel.MAX_STRAND:
+            patient = [name[x], age[x], strand]
         print(patient)
 
 
 
-
-#def random_strand():
-    #strand=""
-    #while len(strand)<20:
-        #strand.append()
-    #if len(strand) == MAX_STRAND:
-        #print(strand)
 
