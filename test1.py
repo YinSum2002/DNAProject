@@ -1,3 +1,4 @@
+
 from dna_tool import random_strand
 
 ##################### TEST FOR OPTION 1

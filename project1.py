@@ -10,7 +10,7 @@ print("\n==========================================")
 print("DNA \"Analyzer\" and Patient Management Tool")
 print("==========================================")
 
-#import dna_kernel
+import dna_kernel
 
 #print(dna_kernel.random_base())
 
