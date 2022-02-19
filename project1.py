@@ -20,7 +20,7 @@ dna.display_menu()
 while True:
     option = input("Command (Enter to exit): ")
     if option == "1":
-        dna.initialize()
+        dna.display()
     elif option == "2":
         print("Currently in progress")
     elif option == "3":

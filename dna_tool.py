@@ -27,13 +27,14 @@ def display_menu():
             #patient = [name[x], age[x], strand]
         #print(patient)
 
-#def display():
+
 
 def dna_strand():
     while len(strand) < dna_kernel.MAX_STRAND:
         strand = strand + random_base()
     if len(strand) == dna_kernel.MAX_STRAND:
         print(strand)
+
 def initialize():
     patients = [['Amy', '36', dna_strand],
                 ['Bob', '28', dna_strand],
@@ -45,4 +46,7 @@ def initialize():
                 ['Pat', '26', dna_strand],
                 ['Peter', '19', dna_strand],
                 ['Tony', '55', dna_strand]]
-    print(patients)
+    return patients
+
+def display():
+    print("In progress...")
