@@ -14,13 +14,13 @@ import dna_kernel
 
 #print(dna_kernel.random_base())
 
-#dna.initialize()
+patient_list = dna.initialize()
 
 dna.display_menu()
 while True:
     option = input("Command (Enter to exit): ")
     if option == "1":
-        dna.display()
+        dna.display(patient_list)
     elif option == "2":
         print("Currently in progress")
     elif option == "3":
