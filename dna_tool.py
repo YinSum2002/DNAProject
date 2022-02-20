@@ -44,6 +44,38 @@ def display(patients):
         print(f'{c}\t\t{p[0]}\t\t{p[1]}\t\t{p[2]}')
         c+=1
 
-
+def info(patients):
+    a = 0
+    b = 0
+    c = 0
+    d = 0
+    e = 0
+    f = 0
+    for p in patients:
+        if int(p[1]) < 20:
+            a += 1
+        elif int(p[1]) >= 20 and int(p[1]) < 30:
+            b += 1
+        elif int(p[1]) >= 30 and int(p[1]) < 40:
+            c += 1
+        elif int(p[1]) >= 40 and int(p[1]) < 50:
+            d += 1
+        elif int(p[1]) >= 50 and int(p[1]) < 60:
+            e += 1
+        else:
+            f += 1
+    sum = a + b + c + d + e + f
+    ap = (a / sum) * 100
+    bp = (b / sum) * 100
+    cp = (c / sum) * 100
+    dp = (d / sum) * 100
+    ep = (e / sum) * 100
+    fp = (f / sum) * 100
+    print(f'<20 : {ap}%')
+    print("20's: "f'{bp}%')
+    print("30's: "f'{cp}%')
+    print("40's: "f'{dp}%')
+    print("50's: "f'{ep}%')
+    print(f'>=60: {fp}%')
 
 

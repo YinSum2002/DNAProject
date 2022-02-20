@@ -22,7 +22,8 @@ while True:
     if option == "1":
         dna.display(patient_list)
     elif option == "2":
-        print("Currently in progress")
+        dna.info(patient_list)
+        #print("Currently in progress")
     elif option == "3":
         print("Currently in progress")
     elif option == "4":
