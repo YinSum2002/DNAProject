@@ -14,16 +14,13 @@ def display_menu():
 #today
 #### To complete (all functions below)
 
-def random_strand():
-    strand = ""
-    for x in range(dna_kernel.MAX_STRAND):
+def random_strand(): #to be impemented in initialize
+    strand = "" #
+    for x in range(dna_kernel.MAX_STRAND): #
         strand += dna_kernel.random_base()
-    return strand
+    return strand #
 
-def initialize(): #keep this at the beginning
-    #generate the max strand within initialize
-
-    #copy_strand = str(random_strand())
+def initialize():
     patients = [['Amy', '36', random_strand()],
                 ['Bob', '28', random_strand()],
                 ['Brooke', '34', random_strand()],
@@ -52,15 +49,16 @@ def info(patients):
     e = 0
     f = 0
     for p in patients:
-        if int(p[1]) < 20:
+        z = int(p[1])
+        if z < 20:
             a += 1
-        elif int(p[1]) >= 20 and int(p[1]) < 30:
+        elif z < 30:
             b += 1
-        elif int(p[1]) >= 30 and int(p[1]) < 40:
+        elif z < 40:
             c += 1
-        elif int(p[1]) >= 40 and int(p[1]) < 50:
+        elif z < 50:
             d += 1
-        elif int(p[1]) >= 50 and int(p[1]) < 60:
+        elif z < 60:
             e += 1
         else:
             f += 1
