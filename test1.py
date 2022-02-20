@@ -1,5 +1,5 @@
 
-from dna_tool import random_strand
+from dna_tool import random_strand, display
 
 ##################### TEST FOR OPTION 1
 print("\n****TEST the random_strand function****")
