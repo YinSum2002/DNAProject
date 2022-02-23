@@ -21,7 +21,7 @@ def random_strand(): #to be impemented in initialize
     return strand #
 
 def initialize():
-    patients = [['Amy', '36', random_strand()],
+    patients = [['Amy', '37', random_strand()],
                 ['Bob', '28', random_strand()],
                 ['Brooke', '34', random_strand()],
                 ['Connor', '27', random_strand()],
@@ -48,20 +48,27 @@ def info(patients):
     d = 0
     e = 0
     f = 0
+    asum = 0
     for p in patients:
         z = int(p[1])
         if z < 20:
             a += 1
+            asum += z
         elif z < 30:
             b += 1
+            asum += z
         elif z < 40:
             c += 1
+            asum += z
         elif z < 50:
             d += 1
+            asum += z
         elif z < 60:
             e += 1
+            asum += z
         else:
             f += 1
+            asum += z
     sum = a + b + c + d + e + f
     ap = (a / sum) * 100
     bp = (b / sum) * 100
@@ -75,5 +82,11 @@ def info(patients):
     print("40's: "f'{dp}%')
     print("50's: "f'{ep}%')
     print(f'>=60: {fp}%')
+    print("")
+    print(f'Age Mean: {asum/sum} ')
 
+def add_new_patient():
+    n = input("Enter Name: ")
+    a = input("Enter Age: ")
+    s = input("Enter DNA strand: ")
 

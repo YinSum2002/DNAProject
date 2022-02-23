@@ -23,9 +23,12 @@ while True:
         dna.display(patient_list)
     elif option == "2":
         dna.info(patient_list)
-        #print("Currently in progress")
     elif option == "3":
-        print("Currently in progress")
+        r = int(input("Who do you want to remove (enter number):"))
+        if r in range(1, len(patient_list)):
+            del patient_list[r - 1]
+        else:
+            print("Patient not found!")
     elif option == "4":
         print("Currently in progress")
     elif option == "5":
