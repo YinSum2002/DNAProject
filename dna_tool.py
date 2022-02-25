@@ -2,9 +2,8 @@
 import random
 
 
-from dna_kernel import random_base # Provided to you
+from dna_kernel import random_base, MAX_STRAND # Provided to you
 random.seed(5)
-import dna_kernel
 ########
 
 def display_menu():
@@ -16,12 +15,9 @@ def display_menu():
 
 def random_strand(): #to be impemented in initialize
     strand = "" #
-    for x in range(dna_kernel.MAX_STRAND): #
-        strand += dna_kernel.random_base()
+    for x in range(MAX_STRAND): #
+        strand += random_base()
     return strand #
-
-patient_names = ["Amy", "Bob", "Brooke", "Connor", "James", "Jenna", "Kate", "Pat", "Peter", "Tony"]
-patient_ages = ["37", "28", "34", "27", "61", "44", "18", "26", "19", "55"]
 
 
 def initialize():
@@ -43,7 +39,7 @@ def initialize():
     return patients
 
 def display(patients):
-    print(f'\t\tName\t\tage\t\tDNA-strand ({dna_kernel.MAX_STRAND} length)') #tabs look to be different lengths?
+    print(f'\t\tName\t\tage\t\tDNA-strand ({MAX_STRAND} length)') #tabs look to be different lengths?
     print("----------------------------------------------------------------")
     c=1
     for p in patients:
@@ -134,4 +130,4 @@ def compare_all(patient_list):
     for s in patient_list:
         for t in patient_list:
             if s[2] == t[2]:
-                print(f'{s[1]} vs {t[1]} {}%')
+                print(f'{s[1]} vs {t[1]} %')

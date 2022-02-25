@@ -10,9 +10,7 @@ print("\n==========================================")
 print("DNA \"Analyzer\" and Patient Management Tool")
 print("==========================================")
 
-import dna_kernel
 
-#print(dna_kernel.random_base())
 
 patient_list = dna.initialize()
 
@@ -25,7 +23,7 @@ while True:
         dna.info(patient_list)
     elif option == "3":
         r = int(input("Who do you want to remove (enter number):"))
-        if r in range(1, len(patient_list)):
+        if r in range(1, len(patient_list)+1):
             del patient_list[r - 1]
         else:
             print("Patient not found!")
