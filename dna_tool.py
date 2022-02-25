@@ -20,7 +20,16 @@ def random_strand(): #to be impemented in initialize
         strand += dna_kernel.random_base()
     return strand #
 
+patient_names = ["Amy", "Bob", "Brooke", "Connor", "James", "Jenna", "Kate", "Pat", "Peter", "Tony"]
+patient_ages = ["37", "28", "34", "27", "61", "44", "18", "26", "19", "55"]
+
+
 def initialize():
+    #i = 0
+    #patients = []
+    #for p in patient_names:
+        #patients += [patient_names[i], patient_ages[i], random_strand()]
+        #i += 1
     patients = [['Amy', '37', random_strand()],
                 ['Bob', '28', random_strand()],
                 ['Brooke', '34', random_strand()],
@@ -85,8 +94,44 @@ def info(patients):
     print("")
     print(f'Age Mean: {asum/sum} ')
 
-def add_new_patient():
+def add_new_patient(patients):
     n = input("Enter Name: ")
     a = input("Enter Age: ")
+    if int(a) != int:
+        print("Error!")
     s = input("Enter DNA strand: ")
+    for p in s:
+        if p != "A" or "C" or "G" or "T":
+            print("Error!")
+        if len(s) != 20:
+            print("Error!")
+    new_patient = [n, a, s]
+    #patients.append(new_patient)
+    patients[::-1] = new_patient
 
+def compare(patients):
+    f = int(input("First patient (enter number): "))
+    s = int(input("Second patient (enter number): "))
+    first_strand = patients[f-1][2]
+    second_strand = patients[s-1][2]
+    #print(first_strand)
+    #print(second_strand)
+    total_strand = ""
+    x=0
+    t=0
+    for l in first_strand:
+        if first_strand[x] == second_strand[x]:
+            total_strand += l
+            x += 1
+            t += 1
+        else:
+            total_strand += "x"
+            x += 1
+    print(f'{patients[f-1][0]} and {patients[s-1][0]} common strand is {total_strand}')
+    print(f'They are similar at {100*t/len(total_strand)}%')
+
+def compare_all(patient_list):
+    for s in patient_list:
+        for t in patient_list:
+            if s[2] == t[2]:
+                print(f'{s[1]} vs {t[1]} {}%')
