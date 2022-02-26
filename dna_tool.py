@@ -150,3 +150,13 @@ def compare_patients(patients):
     percent_similar = check_completeness(final_strand)
     print(f'{patients[f-1][0]} and {patients[s-1][0]} common strand is {final_strand}')
     print(f'They are similar at {percent_similar}%')
+
+def compare_all(patients):
+    for i in range(len(patients)):
+        for f in range(i+1, len(patients)):
+            patient1 = patients[i]
+            patient2 = patients[f]
+            final_strand = compare(patient1[2], patient2[2])
+            percent_similar = check_completeness(final_strand)
+            if percent_similar > 33:
+                print(f'{patient1[0]} vs {patient2[0]} {percent_similar}%')
