@@ -160,3 +160,25 @@ def compare_all(patients):
             percent_similar = check_completeness(final_strand)
             if percent_similar > 33:
                 print(f'{patient1[0]} vs {patient2[0]} {percent_similar}%')
+
+def find_pattern(patient_list, dna_strand):
+    c = input("Which condition are you looking for: ")
+    s = input("Enter sequence: ")
+    n = 0
+    l = [[]]
+    for d in patient_list:
+        for abc in dna_strand:
+            if abc == s:
+                l += patient_list[d]
+                n += 1
+    return l
+    print(f'Number of patients with the {c} condition: {100*n/len(patient_list)}%')
+
+
+    #nested for loop with abc in dna_strand
+
+    #if abc is in dna_strand
+
+    #return patient info as list
+
+    #number of patients += 1
