@@ -162,13 +162,10 @@ def compare_all(patients):
                 print(f'{patient1[0]} vs {patient2[0]} {percent_similar}%')
 
 def find_pattern(patient_list, dna_strand):
-    c = input("Which condition are you looking for: ")
-    s = input("Enter sequence: ")
     n = 0
     l = [[]]
     for d in patient_list:
-        for abc in dna_strand:
-            if abc == s:
+        if dna_strand in patient_list[d][2]:
                 l += patient_list[d]
                 n += 1
     return l

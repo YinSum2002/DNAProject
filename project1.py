@@ -34,7 +34,9 @@ while True:
     elif option == "6":
         dna.compare_all(patient_list)
     elif option == "7":
-        print("Currently in progress")
+        c = input("Which condition are you looking for: ")
+        dna_strand = input("Enter sequence: ")
+        dna.find_pattern(patient_list, dna_strand)
     elif option == "":
         print("Thanks for using this tool")
         print("Come back soon!")
