@@ -90,22 +90,40 @@ def info(patients):
     print("")
     print(f'Age Mean: {asum/sum} ')
 
-def add_new_patient(patients):
-    n = input("Enter Name: ")
-    a = input("Enter Age: ")
-    if int(a) != int:
-        print("Error!")
-    s = input("Enter DNA strand: ")
-    for p in s:
-        if p != "A" or "C" or "G" or "T":
-            print("Error!")
-        if len(s) != 20:
-            print("Error!")
-    new_patient = [n, a, s]
-    #patients.append(new_patient)
-    patients[::-1] = new_patient
+def check_strand(strand):
+    if len(strand) != 20:
+        return False
+    for p in strand:
+        if p != "A" and p != "C" and p != "G" and p != "T":
+            return False
+    return True
 
-def compare(patients):
+def add_new_patient(patients):
+    n = ""
+    while n == "":
+        n = input("Enter Name: ")
+    a = ""
+    while a == "":
+        a = input("Enter Age: ")
+    s = ""
+    while s == "":
+        s = input("Enter DNA Strand: ")
+        if not check_strand(s):
+            print("Bad input! -length must be 20")
+            s = ""
+    new_patient = [[n, a, s]]
+    return patients + new_patient
+
+# the function def compare() accepts 2 arguments, each of which are a dna string. They have to be adjusted so that they can call it from any function.
+# the arguments are the thing that can be applied anywhere - what do you want this to be?
+#def compare(patients[f-1][2], patients[s-1][2]):
+    #f = int(input("First patient (enter number): "))
+    #s = int(input("Second patient (enter number): "))
+
+    #they should be labeled in a way which calls the index of the index
+    # these need to be labeled as something (this will be referred to as patient_list in project1) which turn out the DNA strands
+
+def compare_patients(patients):
     f = int(input("First patient (enter number): "))
     s = int(input("Second patient (enter number): "))
     first_strand = patients[f-1][2]
@@ -126,8 +144,15 @@ def compare(patients):
     print(f'{patients[f-1][0]} and {patients[s-1][0]} common strand is {total_strand}')
     print(f'They are similar at {100*t/len(total_strand)}%')
 
-def compare_all(patient_list):
-    for s in patient_list:
-        for t in patient_list:
-            if s[2] == t[2]:
-                print(f'{s[1]} vs {t[1]} %')
+def compare_all(patient_list[f][2], patient_list[s][2]):
+    common_strand = ""
+    for t in patient_list[f][2]:
+        for r in patient_list[s][2]:
+            if t == r:
+                common_strand += t
+            else:
+                common_strand += "x"
+
+
+                compare_patients(s[2], t[2]) > 33%:
+                print(f'{f[1]} vs {t[1]}')

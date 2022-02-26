@@ -28,10 +28,10 @@ while True:
         else:
             print("Patient not found!")
     elif option == "4":
-        dna.add_new_patient(patient_list)
+        patient_list = dna.add_new_patient(patient_list)
         #print("Currently in progress")
     elif option == "5":
-        dna.compare(patient_list)
+        dna.compare_patients(patient_list)
         #print("Currently in progress")
     elif option == "6":
         print("Currently in progress")
