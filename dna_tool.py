@@ -116,43 +116,37 @@ def add_new_patient(patients):
 
 # the function def compare() accepts 2 arguments, each of which are a dna string. They have to be adjusted so that they can call it from any function.
 # the arguments are the thing that can be applied anywhere - what do you want this to be?
-#def compare(patients[f-1][2], patients[s-1][2]):
-    #f = int(input("First patient (enter number): "))
-    #s = int(input("Second patient (enter number): "))
+def compare(strand1, strand2):
+    total_strand = ""
+    for x in range(len(strand1)):
+        if strand1[x] == strand2[x]:
+            total_strand += strand1[x]
+        else:
+            total_strand += "x"
+    return total_strand
 
-    #they should be labeled in a way which calls the index of the index
-    # these need to be labeled as something (this will be referred to as patient_list in project1) which turn out the DNA strands
+def check_completeness(common):
+    count = 0
+    for c in common:
+        if c != "x":
+            count += 1
+    return 100 * count/len(common)
+
 
 def compare_patients(patients):
     f = int(input("First patient (enter number): "))
+    if f not in range(1,len(patients)+1):
+        print("Patient not found!")
+        return
+
     s = int(input("Second patient (enter number): "))
+    if s not in range(1,len(patients)+1):
+        print("Patient not found!")
+        return
+
     first_strand = patients[f-1][2]
     second_strand = patients[s-1][2]
-    #print(first_strand)
-    #print(second_strand)
-    total_strand = ""
-    x=0
-    t=0
-    for l in first_strand:
-        if first_strand[x] == second_strand[x]:
-            total_strand += l
-            x += 1
-            t += 1
-        else:
-            total_strand += "x"
-            x += 1
-    print(f'{patients[f-1][0]} and {patients[s-1][0]} common strand is {total_strand}')
-    print(f'They are similar at {100*t/len(total_strand)}%')
-
-def compare_all(patient_list[f][2], patient_list[s][2]):
-    common_strand = ""
-    for t in patient_list[f][2]:
-        for r in patient_list[s][2]:
-            if t == r:
-                common_strand += t
-            else:
-                common_strand += "x"
-
-
-                compare_patients(s[2], t[2]) > 33%:
-                print(f'{f[1]} vs {t[1]}')
+    final_strand = compare(first_strand, second_strand)
+    percent_similar = check_completeness(final_strand)
+    print(f'{patients[f-1][0]} and {patients[s-1][0]} common strand is {final_strand}')
+    print(f'They are similar at {percent_similar}%')
