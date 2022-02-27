@@ -14,6 +14,9 @@ def display_menu():
 #### To complete (all functions below)
 
 def random_strand(): #to be impemented in initialize
+    '''generates random strand of length MAX_STRAND
+        adds random choice of random_base to blank strand
+    '''
     strand = "" #
     for x in range(MAX_STRAND): #
         strand += random_base()
@@ -21,11 +24,9 @@ def random_strand(): #to be impemented in initialize
 
 
 def initialize():
-    #i = 0
-    #patients = []
-    #for p in patient_names:
-        #patients += [patient_names[i], patient_ages[i], random_strand()]
-        #i += 1
+    '''creates original list
+        returns as a variable
+    '''
     patients = [['Amy', '37', random_strand()],
                 ['Bob', '28', random_strand()],
                 ['Brooke', '34', random_strand()],
@@ -39,6 +40,10 @@ def initialize():
     return patients
 
 def display(patients):
+    '''displays variable outputted by initialize function
+        uses tabs to format spacing of attributes
+        uses c as ID tracker
+    '''
     print(f'\t\tName\t\tage\t\tDNA-strand ({MAX_STRAND} length)') #tabs look to be different lengths?
     print("----------------------------------------------------------------")
     c=1
@@ -47,13 +52,16 @@ def display(patients):
         c+=1
 
 def info(patients):
-    a = 0
+    '''Takes list of patients
+        returns breakdown of age groups
+    '''
+    a = 0 #different bins
     b = 0
     c = 0
     d = 0
     e = 0
     f = 0
-    asum = 0
+    asum = 0 #total age to calculate average
     for p in patients:
         z = int(p[1])
         if z < 20:
@@ -74,7 +82,7 @@ def info(patients):
         else:
             f += 1
             asum += z
-    sum = a + b + c + d + e + f
+    sum = a + b + c + d + e + f #total number to calculate average
     ap = (a / sum) * 100
     bp = (b / sum) * 100
     cp = (c / sum) * 100
@@ -91,14 +99,21 @@ def info(patients):
     print(f'Age Mean: {asum/sum} ')
 
 def check_strand(strand):
+    '''used in add_new_patient
+        returns False if length is not 20
+        returns False if characters not ACGT
+    '''
     if len(strand) != 20:
         return False
     for p in strand:
         if p != "A" and p != "C" and p != "G" and p != "T":
             return False
-    return True
+    return True #else allows add_new_patient to carry on
 
 def add_new_patient(patients):
+    '''Create list of new Name, age, strand
+        adds to original list
+    '''
     n = ""
     while n == "":
         n = input("Enter Name: ")
@@ -111,22 +126,25 @@ def add_new_patient(patients):
         if not check_strand(s):
             print("Bad input! -length must be 20")
             s = ""
-    new_patient = [[n, a, s]]
+    new_patient = [[n, a, s]] #new list created by inputs
     return patients + new_patient
 
-# the function def compare() accepts 2 arguments, each of which are a dna string. They have to be adjusted so that they can call it from any function.
-# the arguments are the thing that can be applied anywhere - what do you want this to be?
 def compare(strand1, strand2):
+    '''simply compares two strings
+    '''
     total_strand = ""
     for x in range(len(strand1)):
         if strand1[x] == strand2[x]:
             total_strand += strand1[x]
         else:
-            total_strand += "x"
+            total_strand += "x" #for if strands are not equal at x
     return total_strand
 
 def check_completeness(common):
-    count = 0
+    '''scans for how similar two strands are
+        used in compare_patients as new variable
+    '''
+    count = 0 #every time there is a commonality, add one
     for c in common:
         if c != "x":
             count += 1
@@ -134,6 +152,9 @@ def check_completeness(common):
 
 
 def compare_patients(patients):
+    '''input two patients
+        return common strand and percent similarity
+    '''
     f = int(input("First patient (enter number): "))
     if f not in range(1,len(patients)+1):
         print("Patient not found!")
@@ -146,14 +167,17 @@ def compare_patients(patients):
 
     first_strand = patients[f-1][2]
     second_strand = patients[s-1][2]
-    final_strand = compare(first_strand, second_strand)
-    percent_similar = check_completeness(final_strand)
+    final_strand = compare(first_strand, second_strand) #use of compare
+    percent_similar = check_completeness(final_strand) #use of check_completeness
     print(f'{patients[f-1][0]} and {patients[s-1][0]} common strand is {final_strand}')
     print(f'They are similar at {percent_similar}%')
 
 def compare_all(patients):
+    '''takes list
+        returns all patients greater than 33% similarity
+    '''
     for i in range(len(patients)):
-        for f in range(i+1, len(patients)):
+        for f in range(i+1, len(patients)): #nested for loop
             patient1 = patients[i]
             patient2 = patients[f]
             final_strand = compare(patient1[2], patient2[2])
