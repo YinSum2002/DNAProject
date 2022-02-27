@@ -161,16 +161,22 @@ def compare_all(patients):
             if percent_similar > 33:
                 print(f'{patient1[0]} vs {patient2[0]} {percent_similar}%')
 
+def has_pattern(condition_strand, full_strand):
+    t = 0
+    for i in full_strand:
+        if condition_strand == full_strand[t:t+len(condition_strand)]:
+            return True
+        t += 1
+    return False
+
 def find_pattern(patient_list, dna_strand):
     n = 0
-    l = [[]]
-    for d in patient_list:
-        if dna_strand in patient_list[d][2]:
-                l += patient_list[d]
-                n += 1
-    return l
-    print(f'Number of patients with the {c} condition: {100*n/len(patient_list)}%')
-
+    for p in patient_list:
+        if has_pattern(dna_strand, p[2]) is True:
+        #if dna_strand in p[2]:
+            print(f'{p[0]}\t\t{p[1]}\t\t{p[2]}')
+            n += 1
+    return n
 
     #nested for loop with abc in dna_strand
 

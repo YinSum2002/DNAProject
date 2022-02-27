@@ -36,7 +36,9 @@ while True:
     elif option == "7":
         c = input("Which condition are you looking for: ")
         dna_strand = input("Enter sequence: ")
-        dna.find_pattern(patient_list, dna_strand)
+        number_patients = dna.find_pattern(patient_list, dna_strand)
+        print(f'Number of patients with the {c} condition: {100 * number_patients / len(patient_list)}%')
+
     elif option == "":
         print("Thanks for using this tool")
         print("Come back soon!")
